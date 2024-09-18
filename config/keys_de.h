@@ -50,7 +50,6 @@
  * use or other dealings in these Data Files or Software without prior
  * written authorization of the copyright holder.
  */
-;'[
 #pragma once
 
 #include <dt-bindings/zmk/hid_usage.h>
