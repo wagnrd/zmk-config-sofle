@@ -31,7 +31,7 @@
     &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y    &kp U       &kp I       &kp O       &kp P       &kp DE_UE   
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │     H     │     J     │     K     │     L     │     Ö     │     Ä     │ */ 
-    &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H       &kp J       &kp K       &kp L       &kp DE_OE   &kp DE_AE   
+    &kp ESCAPE  &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H       &kp J       &kp K       &kp L       &kp DE_OE   &kp DE_AE   
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │    ,/;    │    ./:    │     ß     │   SHIFT   │ */ 
     &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp DE_COMMA &kp DE_DOT &kp DE_SZ    &kp RSHFT   
