@@ -34,7 +34,7 @@
     &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H       &kp J       &kp K       &kp L       &kp DE_OE   &kp DE_AE   
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     ß     │   SHIFT   │ */ 
-    &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp COMMA    &kp COMMA   &kp DE_SZ    &kp RSHFT   
+    &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp COMMA    &kp DOT     &kp DE_SZ    &kp RSHFT   
 /* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
 /*                         │    CTRL   │    ALT    │    GUI    │  SPECIAL  │ BACKSPACE │       │   ENTER   │   SPACE   │           │           │  CONTROL  │ */
                             &kp LCTRL   &kp LALT    &kp LGUI    &mo SPECIAL &kp BSPC            &kp RET     &kp SPACE   &none       &none       &tog CONTROL
