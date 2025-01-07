@@ -18,27 +18,24 @@
 #define SPECIAL 3
 #define CONTROL 4
 
+&mt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
+    flavor = "tap-preferred";
+    };
+
 / {
+    behaviors {
+        mmra: mod_morph_right_alt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp>, <&kp>;
+            mods = <(MOD_RALT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
-
-        behaviors {
-            mmra: mod_morph_right_alt {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&kp>, <&kp>;
-                mods = <(MOD_RALT)>;
-            };
-
-            mtt: {
-                compatible = "zmk,behavior-mod-tap";
-                #binding-cells = <0>;
-                tapping-term-ms = <200>;
-                quick-tap-ms = <200>;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&kp>;
-            };
-        };
 
         default_layer {
             display-name = "Qwertz";
@@ -48,7 +45,7 @@
    &kp DE_CARET &kp DE_N1   &kp DE_N2   &kp DE_N3   &kp DE_N4   &kp DE_N5                                   &kp DE_N6   &kp DE_N7   &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_SZ
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │    TAB    │     Q     │     W     │     E     │     R     │     T     │                               │     Y     │     U     │     I     │     O     │     P     │     +     │ */
-    &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y  &mtt DE_UE U &mtt DE_AE I &mtt DE_OE O &kp P       &kp DE_PLUS
+    &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y    &mt DE_UE U &mt DE_AE I &mt DE_OE O &kp P       &kp DE_PLUS
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │  H/LEFT   │   J/DOWN  │   K/UP    │  L/RIGHT  │     #     │     <     │ */
     &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                     &mmra H LEFT &mmra J DOWN &mmra K UP &mmra L RIGHT &kp DE_HASH &kp DE_LT
