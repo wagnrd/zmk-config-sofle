@@ -13,13 +13,29 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define QWERTZ 0
-#define BASE 1
-#define SPECIAL 2
-#define CONTROL 3
+#define EXTRA 1
+#define BASE 2
+#define SPECIAL 3
+#define CONTROL 4
 
 / {
     keymap {
         compatible = "zmk,keymap";
+
+        behaviors {
+            mmra: mod_morph_right_alt {
+                compatible = "zmk,behavior-mod-morph";
+                #binding-cells = <0>;
+                bindings = <&kp>, <&kp>;
+                mods = <(MOD_RALT)>;
+            }
+
+            &mt {
+                tapping-term-ms = <200>;
+                quick-tap-ms = <200>;
+                flavor = "tap-preferred";
+            }
+        }
 
         default_layer {
             display-name = "Qwertz";
@@ -31,13 +47,13 @@
 /* │    TAB    │     Q     │     W     │     E     │     R     │     T     │                               │     Y     │     U     │     I     │     O     │     P     │     +     │ */
     &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y    &mt DE_UE U &mt DE_AE I &mt DE_OE O &kp P       &kp DE_PLUS
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │     H     │     J     │     K     │     L     │     #     │     <     │ */
-    &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H       &kp J       &kp K       &kp L       &kp DE_HASH &kp DE_LT
+/* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │  H/LEFT   │   J/DOWN  │   K/UP    │  L/RIGHT  │     #     │     <     │ */
+    &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                     &mmra H LEFT &mmra J DOWN &mmra K UP &mmra L RIGHT &kp DE_HASH &kp DE_LT
 /* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
 /* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     -     │   SHIFT   │ */
     &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp DE_COMMA &kp DE_DOT &kp DE_MINUS &kp RSHFT
 /* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │    CTRL   │    ALT    │    GUI    │   ALT_GR  │  ENTER    │       │ BACKSPACE │   SPACE   │     ´     │    BASE   │  CONTROL  │ */
+/*                         │    CTRL   │    ALT    │    GUI    │   ALT GR  │  ENTER    │       │ BACKSPACE │   SPACE   │     ´     │    BASE   │  CONTROL  │ */
                             &kp LCTRL   &kp LALT    &kp LGUI    &kp RALT    &kp BSPC            &kp RET     &kp SPACE  &kp DE_ACUTE &tog BASE   &tog CONTROL
 /*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
             >;
@@ -59,8 +75,8 @@
 /* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     ß     │   SHIFT   │ */
     &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp COMMA    &kp DOT     &kp DE_SZ    &kp RSHFT
 /* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │    CTRL   │    ALT    │    GUI    │  SPECIAL  │  ENTER    │       │ BACKSPACE │   SPACE   │           │           │  CONTROL  │ */
-                            &kp LCTRL   &kp LALT    &kp LGUI    &mo SPECIAL &kp BSPC            &kp RET     &kp SPACE   &none       &none       &tog CONTROL
+/*                         │    CTRL   │    ALT    │    GUI    │  SPECIAL  │  ENTER    │       │ BACKSPACE │   SPACE   │           │   QWERTZ  │  CONTROL  │ */
+                            &kp LCTRL   &kp LALT    &kp LGUI    &mo SPECIAL &kp BSPC            &kp RET     &kp SPACE   &none       &tog QWERTZ &tog CONTROL
 /*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
             >;
         };
