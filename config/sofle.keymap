@@ -28,14 +28,14 @@
                 #binding-cells = <0>;
                 bindings = <&kp>, <&kp>;
                 mods = <(MOD_RALT)>;
-            }
+            };
 
             &mt {
                 tapping-term-ms = <200>;
                 quick-tap-ms = <200>;
                 flavor = "tap-preferred";
-            }
-        }
+            };
+        };
 
         default_layer {
             display-name = "Qwertz";
