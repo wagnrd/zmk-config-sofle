@@ -72,8 +72,8 @@
 /* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     -     │   SHIFT   │ */
     &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp DE_COMMA &kp DE_DOT &kp DE_MINUS &kp RSHFT
 /* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │    CTRL   │    ALT    │    GUI    │   ALT GR  │  ENTER    │       │ BACKSPACE │   SPACE   │     ´     │    BASE   │  CONTROL  │ */
-                            &kp LCTRL   &kp LALT    &kp LGUI    &kp RALT    &kp BSPC            &kp RET     &kp SPACE  &kp DE_ACUTE &tog BASE   &tog CONTROL
+/*                         │    CTRL   │    ALT    │    GUI    │   ENTER   │  ALT GR   │       │ BACKSPACE │   SPACE   │     ´     │    BASE   │  CONTROL  │ */
+                            &kp LCTRL   &kp LALT    &kp LGUI    &kp BSPC    &kp RALT            &kp RET     &kp SPACE  &kp DE_ACUTE &tog BASE   &tog CONTROL
 /*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
             >;
         };
