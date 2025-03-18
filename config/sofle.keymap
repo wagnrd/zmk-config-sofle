@@ -6,9 +6,8 @@
 
 #include "keys_de.h"
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define QWERTZ 0
@@ -28,6 +27,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp H>, <&kp LEFT>;
+
             mods = <(MOD_RALT)>;
         };
 
@@ -35,6 +35,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp J>, <&kp DOWN>;
+
             mods = <(MOD_RALT)>;
         };
 
@@ -42,6 +43,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp K>, <&kp UP>;
+
             mods = <(MOD_RALT)>;
         };
 
@@ -49,7 +51,32 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp L>, <&kp RIGHT>;
+
             mods = <(MOD_RALT)>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        down {
+            bindings = <&kp DOWN>;
+            key-positions = <52 31>;
+        };
+
+        up {
+            bindings = <&kp UP>;
+            key-positions = <52 32>;
+        };
+
+        left {
+            bindings = <&kp LEFT>;
+            key-positions = <52 30>;
+        };
+
+        right {
+            bindings = <&kp RIGHT>;
+            key-positions = <52 33>;
         };
     };
 
@@ -59,88 +86,46 @@
         default_layer {
             display-name = "Qwertz";
             bindings = <
-/* ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐                               ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐ */
-/* │     ^     │     1     │     2     │     3     │     4     │     5     │                               │     6     │     7     │     8     │     9     │     0     │     ß     │ */
-   &kp DE_CARET &kp DE_N1   &kp DE_N2   &kp DE_N3   &kp DE_N4   &kp DE_N5                                   &kp DE_N6   &kp DE_N7   &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_SZ
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │    TAB    │     Q     │     W     │     E     │     R     │     T     │                               │     Y     │     U     │     I     │     O     │     P     │     +     │ */
-    &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y    &mt DE_UE U &mt DE_AE I &mt DE_OE O &kp P       &kp DE_PLUS
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │  H/LEFT   │   J/DOWN  │   K/UP    │  L/RIGHT  │     #     │     <     │ */
-    &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                       &mmh        &mmj        &mmk        &mml        &kp DE_HASH &kp DE_LT
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     -     │   SHIFT   │ */
-    &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp DE_COMMA &kp DE_DOT &kp DE_MINUS &kp RSHFT
-/* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │    CTRL   │    ALT    │    GUI    │   ENTER   │  ALT GR   │       │ BACKSPACE │   SPACE   │     ´     │    BASE   │  CONTROL  │ */
-                            &kp LCTRL   &kp LALT    &kp LGUI    &kp BSPC    &kp RALT            &kp RET     &kp SPACE  &kp DE_ACUTE &tog BASE   &tog CONTROL
-/*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
+&kp DE_CARET  &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp DE_N4  &kp DE_N5                            &kp DE_N6  &kp DE_N7     &kp DE_N8     &kp DE_N9     &kp DE_N0     &kp DE_SZ
+&kp TAB       &kp Q      &kp W      &kp E      &kp R      &kp T                                &kp DE_Y   &mt DE_UE U   &mt DE_AE I   &mt DE_OE O   &kp P         &kp DE_PLUS
+&kp ESC       &kp A      &kp S      &kp D      &kp F      &kp G                                &kp H      &kp J         &kp K         &kp L         &kp DE_HASH   &kp DE_LT
+&kp LSHFT     &kp DE_Z   &kp X      &kp C      &kp V      &kp B      &kp C_MUTE    &kp DELETE  &kp N      &kp M         &kp DE_COMMA  &kp DE_DOT    &kp DE_MINUS  &kp RSHFT
+                         &kp LCTRL  &kp LALT   &kp LGUI   &kp BSPC   &kp RALT      &kp RET     &kp SPACE  &kp DE_ACUTE  &tog BASE     &tog CONTROL
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         base_layer {
             display-name = "Base";
             bindings = <
-/* ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐                               ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐ */
-/* │           │     1     │     2     │     3     │     4     │     5     │                               │     6     │     7     │     8     │     9     │     0     │           │ */
-    &kp CAPS    &kp DE_N1   &kp DE_N2   &kp DE_N3   &kp DE_N4   &kp DE_N5                                   &kp DE_N6   &kp DE_N7   &kp DE_N8   &kp DE_N9   &kp DE_N0   &none
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │    TAB    │     Q     │     W     │     E     │     R     │     T     │                               │     Y     │     U     │     I     │     O     │     P     │     Ü     │ */
-    &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Y    &kp U       &kp I       &kp O       &kp P       &kp DE_UE
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │    ESC    │     A     │     S     │     D     │     F     │     G     │                               │     H     │     J     │     K     │     L     │     Ö     │     Ä     │ */
-    &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H       &kp J       &kp K       &kp L       &kp DE_OE   &kp DE_AE
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │   SHIFT   │     Z     │     X     │     C     │     V     │     B     │    MUTE   │       │  DELETE   │     N     │     M     │     ,     │     .     │     ß     │   SHIFT   │ */
-    &kp LSHFT   &kp DE_Z    &kp X       &kp C       &kp V       &kp B       &kp C_MUTE          &kp DELETE  &kp N       &kp M      &kp COMMA    &kp DOT     &kp DE_SZ    &kp RSHFT
-/* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │    CTRL   │    ALT    │    GUI    │  SPECIAL  │  ENTER    │       │ BACKSPACE │   SPACE   │           │   QWERTZ  │  CONTROL  │ */
-                            &kp LCTRL   &kp LALT    &kp LGUI    &mo SPECIAL &kp BSPC            &kp RET     &kp SPACE   &none       &tog QWERTZ &tog CONTROL
-/*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
+&kp CAPS   &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp DE_N4  &kp DE_N5                              &kp DE_N6  &kp DE_N7  &kp DE_N8    &kp DE_N9     &kp DE_N0  &none
+&kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                                  &kp DE_Y   &kp U      &kp I        &kp O         &kp P      &kp DE_UE
+&kp ESC    &kp A      &kp S      &kp D      &kp F      &kp G                                  &kp H      &kp J      &kp K        &kp L         &kp DE_OE  &kp DE_AE
+&kp LSHFT  &kp DE_Z   &kp X      &kp C      &kp V      &kp B        &kp C_MUTE    &kp DELETE  &kp N      &kp M      &kp COMMA    &kp DOT       &kp DE_SZ  &kp RSHFT
+                      &kp LCTRL  &kp LALT   &kp LGUI   &mo SPECIAL  &kp BSPC      &kp RET     &kp SPACE  &none      &tog QWERTZ  &tog CONTROL
             >;
         };
 
         special_layer {
             display-name = "Special";
             bindings = <
-/* ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐                               ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐ */
-/* │           │           │           │           │           │           │                               │           │           │           │           │           │           │ */
-    &none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none       &none
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │     ´     │     ]     │     >     │     %     │           │                               │     \     │     ;     │     <     │     [     │     "     │     ~     │ */
-    &none      &kp DE_ACUTE &kp DE_RBKT &kp DE_GT  &kp DE_PRCNT &none                                       &kp BSLH    &kp DE_SEMI &kp DE_LT   &kp DE_LBKT &kp DE_DQT  &kp DE_TILDE
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │     `     │     )     │     }     │     $     │           │                               │      /    │     :     │     {     │     (     │     '     │     |     │ */
-    &none      &kp DE_GRAVE &kp DE_RPAR &kp DE_RBRC &kp DE_DLLR &none                                      &kp DE_FSLH &kp DE_COLON &kp DE_LBRC &kp DE_LPAR &kp DE_SQT  &kp DE_PIPE
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │           │           │     *     │     +     │           │           │       │           │     _     │     -     │     =     │     ?     │     !     │     #     │ */
-    &none       &none       &none       &kp DE_STAR &kp DE_PLUS &none       &none               &none     &kp DE_UNDER &kp DE_MINUS &kp DE_EQL &kp DE_QMARK &kp DE_EXCL &kp DE_HASH
-/* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │           │           │           │   BASE    │           │       │           │           │           │           │           │ */
-                            &none       &none       &none       &none       &none               &none       &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-/*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
+&none  &none         &none        &none        &none         &none                  &none         &none         &none        &none         &none        &none
+&none  &kp DE_ACUTE  &kp DE_RBKT  &kp DE_GT    &kp DE_PRCNT  &none                  &kp BSLH      &kp DE_SEMI   &kp DE_LT    &kp DE_LBKT   &kp DE_DQT   &kp DE_TILDE
+&none  &kp DE_GRAVE  &kp DE_RPAR  &kp DE_RBRC  &kp DE_DLLR   &none                  &kp DE_FSLH   &kp DE_COLON  &kp DE_LBRC  &kp DE_LPAR   &kp DE_SQT   &kp DE_PIPE
+&none  &none         &none        &kp DE_STAR  &kp DE_PLUS   &none  &none    &none  &kp DE_UNDER  &kp DE_MINUS  &kp DE_EQL   &kp DE_QMARK  &kp DE_EXCL  &kp DE_HASH
+                     &none        &none        &none         &none  &none    &none  &kp LEFT      &kp DOWN      &kp UP       &kp RIGHT
             >;
         };
 
         control_layer {
             display-name = "Control";
             bindings = <
-/* ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐                               ┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐ */
-/* │           │           │           │           │           │           │                               │           │           │           │           │           │           │ */
-    &bootloader &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none       &bootloader
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │           │           │           │           │           │                               │           │           │           │           │           │           │ */
-    &none       &none       &none       &none       &none       &none                                       &none       &none       &none       &none       &none       &none
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                               ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │           │ BT CLEAR  │BT PREVIOUS│  BT NEXT  │           │                               │           │           │           │           │           │           │ */
-    &none       &none       &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &none                                       &none       &none       &none       &none       &none       &none
-/* ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┐       ┌───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤ */
-/* │           │           │           │           │OUT TOGGLE │           │           │       │           │           │           │           │           │           │           │ */
-    &none       &none       &none       &none      &out OUT_TOG &none       &none               &none       &none       &none       &none       &none       &none       &none
-/* └───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤       ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────┘ */
-/*                         │           │           │           │           │           │       │           │           │           │           │   BASE    │ */
-                            &none       &none       &none       &none       &none               &none       &none       &none       &none       &trans
-/*                         └───────────┴───────────┴───────────┴───────────┴───────────┘       └───────────┴───────────┴───────────┴───────────┴───────────┘ */
+&bootloader  &none  &none       &none       &none         &none                  &none  &none  &none  &none   &none  &bootloader
+&none        &none  &none       &none       &none         &none                  &none  &none  &none  &none   &none  &none
+&none        &none  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT    &none                  &none  &none  &none  &none   &none  &none
+&none        &none  &none       &none       &out OUT_TOG  &none  &none    &none  &none  &none  &none  &none   &none  &none
+                    &none       &none       &none         &none  &none    &none  &none  &none  &none  &trans
             >;
         };
     };
