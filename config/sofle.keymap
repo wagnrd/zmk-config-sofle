@@ -56,29 +56,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        down {
-            bindings = <&kp DOWN>;
-            key-positions = <52 31>;
-        };
-
-        up {
-            bindings = <&kp UP>;
-            key-positions = <52 32>;
-        };
-
-        left {
-            bindings = <&kp LEFT>;
-            key-positions = <52 30>;
-        };
-
-        right {
-            bindings = <&kp RIGHT>;
-            key-positions = <52 33>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
