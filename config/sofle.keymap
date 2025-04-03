@@ -78,11 +78,11 @@
 
         special_layer {
             bindings = <
-&none  &none      &kp DE_SQUARE  &kp DE_CUBE  &none  &none                  &kp DE_ACUTE  &kp DE_LBRC      &kp DE_LBKT      &kp DE_RBKT      &kp DE_RBRC  &kp DE_BSLH
-&none  &kp DE_AT  &none          &kp DE_EURO  &none  &none                  &none         &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT  &none        &none
-&none  &none      &none          &none        &none  &none                  &kp LEFT      &kp DOWN         &kp UP           &kp RIGHT        &none        &none
-&none  &none      &none          &none        &none  &none  &none    &none  &none         &kp DE_MU        &none            &none            &none        &none
-                  &none          &none        &none  &none  &none    &none  &none         &none            &none            &none
+&none       &none      &kp DE_SQUARE  &kp DE_CUBE  &none  &none                  &kp DE_ACUTE  &kp DE_LBRC      &kp DE_LBKT      &kp DE_RBKT      &kp DE_RBRC  &kp DE_BSLH
+&none       &kp DE_AT  &none          &kp DE_EURO  &none  &none                  &none         &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT  &none        &none
+&none       &none      &none          &none        &none  &none                  &kp LEFT      &kp DOWN         &kp UP           &kp RIGHT        &none        &kp DE_PIPE
+&kp LSHIFT  &none      &none          &none        &none  &none  &none    &none  &none         &kp DE_MU        &none            &none            &none        &none
+                       &none          &none        &none  &none  &none    &none  &none         &none            &none            &none
             >;
 
             label = "Special";
